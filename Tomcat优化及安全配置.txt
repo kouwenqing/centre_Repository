@@ -1,0 +1,69 @@
+1.关闭Tomcat  shutdown 命令  可以修改  shutdown="SHUTDOWN" 值来处理、
+2.隐藏Tomcat版本信息   在Tomcat下lib 找到一个catalina.jar 包 打开org/apache/catalina/util/Serverinfo.properties
+  修个server.info=Apache Tomcat/7.0.73 值。
+3.禁用Tomcat管理界面在C:\apache-tomcat-7.0.73\webapps\修个ROOT文件名
+4.定义错误页面  在root目录下发一个写好的错误页面 在到conf文件下配置web.xml
+    <error-page>
+        <error-code>400</error-code>
+		<location>/error.xml</location>
+    <error-page>
+	 <error-page>
+        <error-code>500</error-code>
+		<location>/error.xml</location>
+    <error-page>
+	 <error-page>
+        <error-code>404</error-code>
+		<location>/error.xml</location>
+    <error-page>
+
+5.禁用AJP连接器在Tomcat的前端如何使用的是Nginx做反向代理就要禁用
+    <!--
+    <Connector port="8322" protocol="AJP/1.3" redirectPort="8443" />
+    -->
+6.启用cookie的HttpOnly属性 提高cookie的安全性 在Tomcat\lib 下找到context.xml文件添加 <Context useHttpOnly="true">
+7.禁用Tomcat无用的账号和权限
+  <role rolename="admin-gui"/>
+  <role rolename="admin-script"/>
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status"/>
+  <user username="admin" password="1114737103" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-script,admin-gui"/>
+  这个需要精减
+  
+8.配合日志文件比如像记录关机和登录等。在Tomcat\conf\server.xml
+    <!-- Access log processes all example.
+             Documentation at: /docs/config/valve.html
+             Note: The pattern used is equivalent to using pattern="common" -->
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log." suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+9.配置线程池
+    <!--The connectors can use a shared executor, you can define one or more named thread pools-->
+       <Executor name="tomcatThreadPool" namePrefix="catalina-exec-"
+        maxThreads="800" minSpareThreads="100" maxQueueSize="100" prestartminSpareThreads="true" />
+10.拦截器80或443连接器
+     <Connector executor="tomcatThreadPool"  port="8318" 
+               protocol="org.apache.coyote.http11.Http11NioProtocol"
+               connectionTimeout="20000"
+               redirectPort="8443"
+               enableLookups="false" 
+               maxPostSize="10485760"
+               URIEncoding="UTF-8"
+               acceptCount="100"
+               acceptorThreadCount="2"
+               disableUploadTimeout="true"
+               maxConnections="10000"
+              
+               SSLEnabled="true"
+               scheme="https"
+               secure="true"
+               keystoreFile="/cert/2496753__youke123.net.pfx"
+               keystoreType="PKCS12"
+               keystorePass="fOEs1fHe"
+               clientAuth="false"
+               SSLProtocol="TLSv1+TLSv1.1+TLSv1.2"
+               ciphers="TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256"
+
+           />
+ 
