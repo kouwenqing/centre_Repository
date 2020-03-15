@@ -1,0 +1,159 @@
+安装完git后配置用户信息
+$ git config --global user.name "kouwenqing"
+$ git config --global user.email "1114737103@qq.com"
+$ git config --list
+
+
+
+git访问GitHub仓库生成KEY
+   创建  命令$ ssh-keygen -t rsa -C "1114737103@qq.com"
+   连接测试命令 $ ssh -T git@github.com
+
+
+命令使用记录
+Administrator@SC-201904031750 MINGW64 ~
+$ ssh-keygen -t rsa -C "1114737103@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):
+Created directory '/c/Users/Administrator/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa.
+Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:4nQPuVfPi7vdr3Iou8raDtdKIOu74JMKYb7mfxsz+rQ 1114737103@qq.com
+The key's randomart image is:
++---[RSA 2048]----+
+|                 |
+|                 |
+|                 |
+|         .       |
+|..  . + S   .    |
+|o.   = + = . o   |
+|.....=o + +  .o  |
+|.o+oo.=* o. oo.o |
+|++o+*Eoo*.o++=+.+|
++----[SHA256]-----+
+
+Administrator@SC-201904031750 MINGW64 ~
+$ pwd
+/c/Users/Administrator
+
+Administrator@SC-201904031750 MINGW64 ~
+$ ls
+ 「开始」菜单@
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ default-soapui-workspace.xml
+ Desktop/
+ Documents/
+ Downloads/
+ Favorites/
+ HBuilder/
+'HBuilder settings'/
+ hsperfdata_Administrator/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ MicrosoftEdgeBackups/
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TM.blf
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+ Pictures/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+ soapui-settings.xml
+ SoapUI-Tutorials/
+ source/
+'Start Menu'@
+ Templates@
+ Videos/
+ VSWebCache/
+ WeChatProjects/
+ workspace/
+
+Administrator@SC-201904031750 MINGW64 ~
+$ ls
+ 「开始」菜单@
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ default-soapui-workspace.xml
+ Desktop/
+ Documents/
+ Downloads/
+ Favorites/
+ HBuilder/
+'HBuilder settings'/
+ hsperfdata_Administrator/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ MicrosoftEdgeBackups/
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TM.blf
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+ Pictures/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+ soapui-settings.xml
+ SoapUI-Tutorials/
+ source/
+'Start Menu'@
+ Templates@
+ Videos/
+ VSWebCache/
+ WeChatProjects/
+ workspace/
+
+Administrator@SC-201904031750 MINGW64 ~
+$ pwd
+/c/Users/Administrator
+
+Administrator@SC-201904031750 MINGW64 ~
+$ cd /C:\Users\Administrator\.ssh
+bash: cd: /C:UsersAdministrator.ssh: No such file or directory
+
+Administrator@SC-201904031750 MINGW64 ~
+$ cd .ssh
+
+Administrator@SC-201904031750 MINGW64 ~/.ssh
+$ ll
+total 5
+-rw-r--r-- 1 Administrator 197121 1823 3月   5 18:10 id_rsa
+-rw-r--r-- 1 Administrator 197121  399 3月   5 18:10 id_rsa.pub
+
+Administrator@SC-201904031750 MINGW64 ~/.ssh
+$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNzptmXXMeNDoh8Xqb5hfotSaOhtoZmxWOzDAprDiNYPYudcSeQs1bxgzVwVoD57BjJ1YfLlCQLpEM2jg/YMOi0C9id6qyvZyMOvjVVHJmf2YHBQzG3oJcaDcOuudGU/OgcPDpV6cfKaHfP5/XwQoufaQTCYoCEGFSrb/z7y2vJ8grKRMMwIH6UNibvS+GOUcd4W676L+rGZeA7xJjWYfj6VFcpI9CDumLh96CZoys2Qb8WSQ+3CzJ2rENN9C+s7GfQT3+al6gedxCheGblKAd4h+bEktm43DECbfHVWG2mTmonP4LrXeGo4AH0Kbfa3193i3KstIOpT0W4otSY5hJ 1114737103@qq.com
+
+Administrator@SC-201904031750 MINGW64 ~/.ssh
+$
+
